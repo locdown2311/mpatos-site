@@ -58,71 +58,77 @@
     </div>
 </template>
 <script>
-import Linhas from '@/components/GraficoLinhas'
-import axios from 'axios'
+import Linhas from "@/components/GraficoLinhas";
+import axios from "axios";
 export default {
-    components:{
-        Linhas
-    },
+  components: {
+    Linhas
+  },
   data: () => ({
-      nome:'',
-        nivel:'',
-        trofeus:'',
-        arena:'',
-        donates:'',
-        trofeusMax:'',
-        vd:'',
-        baus:[],
-        chartData:{
-            labels: ['Inicio', 'Atual'],
-            datasets: [
-                {
-                label: 'Exemplo',
-                backgroundColor: '#f87979',
-                data: [0, 80]
-                }
-            ]
+    nome: "",
+    nivel: "",
+    trofeus: "",
+    arena: "",
+    donates: "",
+    trofeusMax: "",
+    vd: "",
+    baus: [],
+    chartData: {
+      labels: ["Inicio", "Atual"],
+      datasets: [
+        {
+          label: "Exemplo",
+          backgroundColor: "#f87979",
+          data: [0, 80]
         }
+      ]
+    }
   }),
-  async created(){
-       const perfil = await this.getProfile();
-       const baus = await this.getBaus();
+  async created() {
+    const perfil = await this.getProfile();
+    const baus = await this.getBaus();
   },
   methods: {
-    getBaus: function(){
+    getBaus: function() {
       axios
-        .get('https://api.royaleapi.com/player/'+this.$route.params.id+'/chests', {
-          headers: {
-            auth:
-              'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQ0MCwiaWRlbiI6IjM2NTU5NTM1NTg1MDYwNDU1NSIsIm1kIjp7fSwidHMiOjE1MzM5MTk4MTAzODh9.pP960WHJcU-Cv3IRa090VkpT7bPfu422GffYM5IN2-k'
+        .get(
+          "https://api.royaleapi.com/player/" +
+            this.$route.params.id +
+            "/chests",
+          {
+            headers: {
+              auth:
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQ0MCwiaWRlbiI6IjM2NTU5NTM1NTg1MDYwNDU1NSIsIm1kIjp7fSwidHMiOjE1MzM5MTk4MTAzODh9.pP960WHJcU-Cv3IRa090VkpT7bPfu422GffYM5IN2-k"
+            }
           }
-        })
+        )
         .then(res => {
-            this.baus = res.data.upcoming
+          this.baus = res.data.upcoming;
         })
         .catch(error => {
-          console.log('error 3 ' + error)
-        })  
+          console.log("error 3 " + error);
+        });
     },
     getProfile: function() {
       axios
-        .get('https://api.royaleapi.com/player/'+this.$route.params.id, {
+        .get("https://api.royaleapi.com/player/" + this.$route.params.id, {
           headers: {
             auth:
-              'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQ0MCwiaWRlbiI6IjM2NTU5NTM1NTg1MDYwNDU1NSIsIm1kIjp7fSwidHMiOjE1MzM5MTk4MTAzODh9.pP960WHJcU-Cv3IRa090VkpT7bPfu422GffYM5IN2-k'
+              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQ0MCwiaWRlbiI6IjM2NTU5NTM1NTg1MDYwNDU1NSIsIm1kIjp7fSwidHMiOjE1MzM5MTk4MTAzODh9.pP960WHJcU-Cv3IRa090VkpT7bPfu422GffYM5IN2-k"
           }
         })
         .then(res => {
-            this.nome = res.data.name
-            this.trofeus = res.data.trophies
-            this.arena = res.data.arena.arenaID
-            this.donates = res.data.clan.donations
-            this.trofeusMax = res.data.stats.maxTrophies
-            this.vd = res.data.games.winsPercent
+          this.nome = res.data.name;
+          this.trofeus = res.data.trophies;
+          this.arena = res.data.arena.arenaID;
+          this.donates = res.data.clan.donations;
+          this.trofeusMax = res.data.stats.maxTrophies;
+          this.vd = res.data.games.winsPercent;
         })
         .catch(error => {
-          console.log('error 3 ' + error)
-        })
+          console.log(this.$route.params.id);
+          console.log("error 3 " + error);
+        });
     }
   }
 };

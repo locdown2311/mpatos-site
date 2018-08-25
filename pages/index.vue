@@ -40,7 +40,6 @@
                           </li>
                           <li>Ao entrar no clan certifique-se de saudar a todos</li>
                           <li>Se você ficar muito tempo AFK sem motivo algum (estamos te vigiando) -> <i class="fa fa-gavel"/> BAN</li>
-                          <li>Respeite a Líder Kitty, fez merda com ela -> <i class="fa fa-gavel"/> BAN IMEDIATO</li>
                           <li><strong><i class="fa fa-gavel"/>Todos os banimentos terão o motivo especificado<i class="fa fa-gavel"/></strong></li>
                           <li><span style="color: #ed5e1c;"><i class="fa fa-medal" style="color:#ffff00;"/> Se você for um membro fiel e seguir todas as regras certamente será promovido <i class="fa fa-medal" style="color:#ffff00;"/></span></li>
                           <li>No mais, seja bem vindo e esperamos não tem problemas</li>

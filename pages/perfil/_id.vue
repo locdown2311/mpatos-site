@@ -77,7 +77,7 @@ export default {
             labels: ['Inicio', 'Atual'],
             datasets: [
                 {
-                label: 'Exemplooo',
+                label: 'Exemplo',
                 backgroundColor: '#f87979',
                 data: [0, 80]
                 }

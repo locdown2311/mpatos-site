@@ -38,7 +38,9 @@ export default {
         return 'Líder'
       } else if (this.patente === 'coLeader') {
         return 'Sub-Líder'
-      } else {
+      } else if (this.patente === 'elder'){
+        return 'Ancião'
+      }else{
         return 'Membro'
       }
     }
